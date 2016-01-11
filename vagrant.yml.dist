@@ -1,0 +1,8 @@
+vm:
+    hostname: "vagrant.dev-php" # URL to access your working copy
+    public_network: "en3: USB Ethernet" # Adapter to access the public network
+    memory: 2048 # Limit of the memory
+    cpus: 2 # Number of CPUs to run the virtual machine
+folders:
+    php_tmpl: "./" # Folder where the code is located
+    code: "/php-tmpl" # Folder inside the virtual machine where the code will reside
