@@ -6,6 +6,9 @@
   apt: pkg={{ item }} state=latest
   with_items: sys_packages
 
+- name: Install add-apt-repository
+  apt: pkg=software-properties-common state=latest
+
 - name: Make sure python-software-properties is installed
   apt: pkg=python-software-properties state=latest
 
