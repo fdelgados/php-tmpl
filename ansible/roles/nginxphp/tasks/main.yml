@@ -12,3 +12,13 @@
 - name: Install PHP Packages
   apt: pkg={{ item }} state=latest
   with_items: php_packages
+
+- name: Download PHP Autoload Builder
+  shell: wget https://github.com/theseer/Autoload/releases/download/{{ phpab_version }}/phpab-{{ phpab_version }}.phar
+  args:
+    chdir: /usr/bin
+    creates: /usr/bin/phpab-{{ phpab_version }}.phar
+
+- name: Install PHP Autoload Builder
+  file: path=/usr/bin/phpab-{{ phpab_version }}.phar state=file mode=a+x
+  file: path=/usr/bin/phpab src=/usr/bin/phpab-{{ phpab_version }}.phar state=link force=yes mode=a+x
