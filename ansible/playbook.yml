@@ -5,9 +5,10 @@
     doc_root: /vagrant/web
     server_name: "{{ ansible_eth1.ipv4.address }}"
     sys_packages: [ 'curl', 'vim', 'git', 'wget', 'unzip' ]
-    php_packages: [ 'php5-curl', 'php5-cli' ]
+    php_packages: [ 'php5-curl', 'php5-cli', 'php5-xdebug' ]
     java_packages: [ 'oracle-java8-installer', 'ca-certificates', 'oracle-java8-set-default' ]
     ant_version: 1.9.6
+    phpab_version: 1.21.0
   roles:
     - init
     - java
