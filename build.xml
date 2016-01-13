@@ -21,4 +21,15 @@
     <target name="phpunit" description="Run unit tests with PHPUnit">
         <exec executable="phpunit" failonerror="true" />
     </target>
+    <target name="lint">
+        <apply executable="php" failonerror="true">
+            <arg value="-l" />
+            <fileset dir="${basedir}/src">
+                <include name="**/*.php" />
+            </fileset>
+            <fileset dir="${basedir}/tests">
+                <include name="**/*.php" />
+            </fileset>
+        </apply>
+    </target>
 </project>
