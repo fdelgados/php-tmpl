@@ -12,10 +12,10 @@
     </target>
     <target name="phpab" description="Generate autolader scripts">
         <exec executable="phpab">
-            <arg line="-o ${basedir}/src/autoload.php -t ${basedir}/build/src_autoload.php.in src" />
+            <arg line="-o ${basedir}/src/autoload.php -t ${basedir}/build/src_autoload.php.in ${basedir}/src" />
         </exec>
         <exec executable="phpab">
-            <arg line="-o ${basedir}/tests/autoload.php -t ${basedir}/build/tests_autoload.php.in tests" />
+            <arg line="-o ${basedir}/tests/autoload.php -t ${basedir}/build/tests_autoload.php.in ${basedir}/tests" />
         </exec>
     </target>
     <target name="phpunit" description="Run unit tests with PHPUnit">
