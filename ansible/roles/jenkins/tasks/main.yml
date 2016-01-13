@@ -1,0 +1,29 @@
+---
+# Jenkins installation
+
+- name: Create Jenkins dest dir
+  shell: mkdir -p {{ jenkins_dest }}
+
+- name: Add jenkins apt-key
+  apt_key: url=https://jenkins-ci.org/debian/jenkins-ci.org.key state=present
+
+- name: Add jenkins repository
+  apt_repository: repo="deb http://pkg.jenkins-ci.org/debian binary/" state=present update_cache=yes
+
+- name: Install Jenkins
+  apt: pkg=jenkins state=latest
+  register: jenkins_installed
+
+- name: Configure Jenkins Port
+  lineinfile: dest=/etc/default/jenkins regexp=^HTTP_PORT= line=HTTP_PORT={{ jenkins_port }}
+  register: config_changed
+
+- name: Restart jenkins now
+  service: name=jenkins state=restarted
+  when: config_changed.changed
+
+- include: cli.yml
+
+- include: plugins.yml
+
+
