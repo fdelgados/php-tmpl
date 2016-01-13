@@ -1,0 +1,23 @@
+---
+# The playbook for 'The PHP Quality Assurance Toolchain' tasks.
+
+- name: Install PHPUnit
+  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=0555
+
+- name: Install PHP_CodeSniffer
+  shell: pear install -f PHP_CodeSniffer
+
+- name: Install PHP Copy/Paste Detector
+  get_url: url=https://phar.phpunit.de/phpcpd.phar dest=/usr/local/bin/phpcpd mode=0555
+
+- name: Install PHP Depend
+  get_url: url=http://static.pdepend.org/php/latest/pdepend.phar dest=/usr/local/bin/pdepend mode=0555
+
+- name: Install PHP Mess Detector
+  get_url: url=http://static.phpmd.org/php/latest/phpmd.phar dest=/usr/local/bin/phpmd mode=0555
+
+- name: Install PHPLOC
+  get_url: url=https://phar.phpunit.de/phploc.phar dest=/usr/local/bin/phploc mode=0555
+
+- name: Install phpDox
+  get_url: url=http://phpdox.de/releases/phpdox.phar dest=/usr/local/bin/phpdox mode=0555
