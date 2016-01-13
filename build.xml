@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="TemplatePHP" default="build">
-    <target name="build" depends="phpab" />
+    <target name="build" depends="prepare,phpunit" />
+
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${basedir}/build/coverage" />
+        <delete dir="${basedir}/build/logs" />
+    </target>
+    <target name="prepare" depends="clean,phpab" description="Prepare for build">
+        <mkdir dir="${basedir}/build/coverage" />
+        <mkdir dir="${basedir}/build/logs" />
+    </target>
     <target name="phpab" description="Generate autolader scripts">
         <exec executable="phpab">
-            <arg value="--output" />
-            <arg path="${basedir}/src/autoload.php" />
-            <arg value="--template" />
-            <arg path="${basedir}/build/src_autoload.php.in" />
-            <arg path="${basedir}/src" />
+            <arg line="-o ${basedir}/src/autoload.php -t ${basedir}/build/src_autoload.php.in src" />
         </exec>
         <exec executable="phpab">
-            <arg value="--output" />
-            <arg path="${basedir}/tests/autoload.php" />
-            <arg value="--template" />
-            <arg path="${basedir}/build/tests_autoload.php.in" />
-            <arg path="${basedir}/tests" />
+            <arg line="-o ${basedir}/tests/autoload.php -t ${basedir}/build/tests_autoload.php.in tests" />
         </exec>
+    </target>
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <exec executable="phpunit" failonerror="true" />
     </target>
 </project>
