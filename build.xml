@@ -33,9 +33,9 @@
         </apply>
     </target>
 
-    <target name="phpdoc" description="Generate API documentation using PHPDocumentor">
-        <exec executable="phpdoc">
-            <arg line="--directory ${basedir}/src --target ${basedir}/build/api" />
+    <target name="phpdox" description="Generate API documentation using PHPDocumentor">
+        <exec executable="phpdox">
+            <arg line="--file ${basedir}/phpdox.xml" />
         </exec>
     </target>
 
