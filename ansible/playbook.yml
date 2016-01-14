@@ -3,29 +3,14 @@
   sudo: true
   vars:
     doc_root: /vagrant/web
-    server_name: "{{ ansible_eth1.ipv4.address }}"
-    sys_packages: [ 'curl', 'vim', 'git', 'wget', 'unzip' ]
-    php_packages: [ 'php5-curl', 'php5-cli', 'php5-xdebug', 'php-pear', 'php5-xsl' ]
-    java_packages: [ 'oracle-java8-installer', 'ca-certificates', 'oracle-java8-set-default' ]
-    ant_version: 1.9.6
-    phpab_version: 1.21.0
     app_dir: /vagrant
-    jenkins_dest: /opt/jenkins
-    jenkins_cli: "{{ jenkins_dest }}/jenkins-cli.jar"
-    jenkins_upd_file: "{{ jenkins_dest }}/updates_jenkins.json"
-    jenkins_port: 8081
-    jenkins_plugins:
-      - 'checkstyle'
-      - 'cloverphp'
-      - 'dry'
-      - 'htmlpublisher'
-      - 'jdepend'
-      - 'plot'
-      - 'pmd'
-      - 'violations'
-      - 'xunit'
+    server_name: "{{ ansible_eth1.ipv4.address }}"
+    sys_packages:
+      - 'curl'
+      - 'vim'
       - 'git'
-      - 'greenballs'
+      - 'wget'
+      - 'unzip'
   roles:
     - init
     - java

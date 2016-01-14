@@ -15,7 +15,7 @@
   register: jenkins_installed
 
 - name: Configure Jenkins Port
-  lineinfile: dest=/etc/default/jenkins regexp=^HTTP_PORT= line=HTTP_PORT={{ jenkins_port }}
+  lineinfile: dest=/etc/default/jenkins regexp=^HTTP_PORT= line=HTTP_PORT={{ jenkins.port }}
   register: config_changed
 
 - name: Restart jenkins now

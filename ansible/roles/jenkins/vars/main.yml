@@ -1,0 +1,18 @@
+---
+jenkins_dest: /opt/jenkins
+jenkins:
+  cli: "{{ jenkins_dest }}/jenkins-cli.jar"
+  updates: "{{ jenkins_dest }}/updates_jenkins.json"
+  port: 8081
+  plugins:
+    - 'checkstyle'
+    - 'cloverphp'
+    - 'dry'
+    - 'htmlpublisher'
+    - 'jdepend'
+    - 'plot'
+    - 'pmd'
+    - 'violations'
+    - 'xunit'
+    - 'git'
+    - 'greenballs'
