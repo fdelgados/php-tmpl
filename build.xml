@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="TemplatePHP" default="build" basedir=".">
-    <target name="build" depends="prepare,phpunit" />
+    <target name="build" depends="prepare,lint,phpunit,parallelTasks" />
 
     <target name="clean" description="Cleanup build artifacts">
         <delete dir="${basedir}/build/coverage" />
@@ -20,6 +20,19 @@
     </target>
     <target name="phpunit" description="Run unit tests with PHPUnit">
         <exec executable="phpunit" failonerror="true" />
+    </target>
+
+    <target name="parallelTasks" description="Run code analysis tasks in parallel">
+        <parallel threadCount="2">
+            <sequential>
+                <antcall target="pdepend" />
+                <!--<antcall target="phpmd" /> -->
+            </sequential>
+            <antcall target="phpcpd" />
+            <!--<antcall target="phpcs" /> -->
+            <antcall target="phpdox" />
+            <antcall target="phploc" />
+        </parallel>
     </target>
     <target name="lint">
         <apply executable="php" failonerror="true">
