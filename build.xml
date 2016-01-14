@@ -26,7 +26,7 @@
         <parallel threadCount="2">
             <sequential>
                 <antcall target="pdepend" />
-                <!--<antcall target="phpmd" /> -->
+                <antcall target="phpmd" />
             </sequential>
             <antcall target="phpcpd" />
             <antcall target="phpcs" />
@@ -81,6 +81,16 @@
             <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
             <arg value="--standard=${basedir}/build/phpcs.xml" />
             <arg path="${basedir}/src" />
+        </exec>
+    </target>
+
+    <target name="phpmd" description="Perform project mess detection using PHPMD">
+        <exec executable="phpmd">
+            <arg path="${basedir}/src" />
+            <arg value="xml" />
+            <arg value="${basedir}/build/phpmd.xml" />
+            <arg value="--reportfile" />
+            <arg value="${basedir}/build/logs/pmd.xml" />
         </exec>
     </target>
 </project>
