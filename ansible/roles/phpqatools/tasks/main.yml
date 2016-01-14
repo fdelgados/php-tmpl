@@ -21,3 +21,6 @@
 
 - name: Install phpDox
   get_url: url=http://phpdox.de/releases/phpdox.phar dest=/usr/local/bin/phpdox mode=0555
+
+- name: Install PHP_CodeBrowser
+  get_url: url=https://github.com/mayflower/PHP_CodeBrowser/releases/download/1.1.1/phpcb-1.1.1.phar dest=/usr/local/bin/phpcb mode=0555
