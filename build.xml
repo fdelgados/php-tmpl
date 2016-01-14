@@ -235,7 +235,9 @@
             unless="phpdox.done"
             depends="phploc-ci,phpcs-ci,phpmd-ci"
             description="Generate project documentation using phpDox">
-        <exec executable="${phpdox}" file="${basedir}/phpdox.xml" taskname="phpdox"/>
+        <exec executable="${phpdox}" dir="${basedir}/build" taskname="phpdox">
+            <arg line="--file ${basedir}/phpdox.xml" />
+        </exec>
         <property name="phpdox.done" value="true"/>
     </target>
 
