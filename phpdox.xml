@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <phpdox xmlns="http://xml.phpdox.net/config">
-    <project name="name-of-project" source="src" workdir="build/phpdox">
+    <project name="php-template" source="src" workdir="build/phpdox">
         <collector publiconly="false">
             <include mask="*.php" />
         </collector>
