@@ -1,3 +1,6 @@
 ---
 - name: Restart Jenkins
-  command: java -jar {{ jenkins_cli }} -s http://localhost:{{ jenkins_port }} safe-restart
+  command: java -jar {{ jenkins.cli }} -s http://localhost:{{ jenkins.port }} safe-restart
+
+- name: Reload Configuration
+  command: java -jar {{ jenkins.cli }} -s http://localhost:{{ jenkins.port }} reload-configuration

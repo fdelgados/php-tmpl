@@ -1,0 +1,10 @@
+---
+- name: Create job dir
+  file: path={{ jenkins_home }}/jobs/php-template state=directory mode=0755 owner=jenkins group=jenkins
+
+- name: Get Jenkins job template
+  get_url: url=https://raw.githubusercontent.com/sebastianbergmann/php-jenkins-template/master/config.xml dest={{ jenkins_home }}/jobs/php-template/config.xml  mode=0644 owner=jenkins group=jenkins
+  register: jenkins_job_config
+  retries: 5
+  delay: 10
+  notify: Reload Configuration

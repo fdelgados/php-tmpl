@@ -26,4 +26,6 @@
 
 - include: plugins.yml
 
+- include: job.yml
+
 

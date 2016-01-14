@@ -1,5 +1,6 @@
 ---
 jenkins_dest: /opt/jenkins
+jenkins_home: /var/lib/jenkins
 jenkins:
   cli: "{{ jenkins_dest }}/jenkins-cli.jar"
   updates: "{{ jenkins_dest }}/updates_jenkins.json"
