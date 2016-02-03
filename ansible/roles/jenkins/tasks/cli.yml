@@ -11,7 +11,7 @@
   delay: 10
 
 - name: Get Jenkins updates
-  get_url: url=https://updates.jenkins-ci.org/update-center.json dest={{ jenkins.updates }} thirsty=yes mode=0440 timeout=30
+  get_url: url=https://updates.jenkins-ci.org/update-center.json dest={{ jenkins.updates }} thirsty=yes mode=0440
   register: jenkins_updates
 
 - name: Update-center Jenkins
