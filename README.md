@@ -82,19 +82,18 @@ this command:
 vagrant ssh
 ```
 
-To acces to Jenkins, you will need the vagrant machine ip address. Once you are
-into your vagrant machine, type this:
-
-```sh
- ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
- ```
-
 You can run the two steps above in just one line:
 
 ```sh
 vagrant reload --provision && vagrant ssh -c "[any bash command]" && vagrant rsync-auto
 ```
 
+To acces to Jenkins, you will need the vagrant machine ip address. Once you are
+into your vagrant machine, type this:
+
+```sh
+ ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
+ ```
 
 To stop the environment, run this:
 
@@ -104,9 +103,9 @@ vagrant halt
 
 ## References
 
-[Integrating PHP projects with Jenkins](https://read.amazon.com/kp/embed?asin=B005QED7QY&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_uIHSwb11PX5V8) by Sebastian Bergmann.
-[Vagrant Cookbook](https://leanpub.com/vagrantcookbook) by Erika Heidi
-[Ansible for DevOps](https://leanpub.com/ansible-for-devops) by Jeff Geerling
+[Integrating PHP projects with Jenkins](https://read.amazon.com/kp/embed?asin=B005QED7QY&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_uIHSwb11PX5V8) by Sebastian Bergmann.  
+[Vagrant Cookbook](https://leanpub.com/vagrantcookbook) by Erika Heidi.  
+[Ansible for DevOps](https://leanpub.com/ansible-for-devops) by Jeff Geerling.
 
 
 That's all, enjoy!!
