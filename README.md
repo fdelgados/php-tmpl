@@ -1,5 +1,7 @@
 # PHP project template
 
+Based on Sebastian Bergmann's book [Integrating PHP projects with Jenkins](https://read.amazon.com/kp/embed?asin=B005QED7QY&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_uIHSwb11PX5V8)
+
 ## System requirements
 This guide is intended for users of Unix (Linux / Mac OS X) machines.
 
